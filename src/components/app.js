@@ -1,30 +1,17 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import fetchBooks from '../actions/fetchApiBook';
+import Navbar from './navbar';
+import Searchbar from './searchbar';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.books = this.books.bind(this);
-  }
-  componentWillMount() {
-    this.props.fetchBooks('zero to one');
-  }
-  books() {
-    return this.props.books.items.map(item => {
-      return <p>{item.id}</p>
-    });
-  }
+import '../reset.css';
+import '../styles.css';
+
+export default class App extends Component {
   render() {
     return (
-      <div>{this.books()}</div>
+      <div className='page-wrapper'>
+        <Navbar />
+        <Searchbar />
+      </div>
     );
   }
 }
-
-function mapStateToProps(state) {
-  return { books: state.fetchBooks }
-}
-
-export default connect(mapStateToProps, { fetchBooks })(App);

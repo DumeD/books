@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const FETCH_BOOKS = 'FETCH_BOOKS';
+export const FETCH_BOOKS = 'FETCH_BOOKS';
 
 let baseURL = 'https://www.googleapis.com/books/v1/volumes?q=';
 let apiKey = '';

@@ -1,0 +1,48 @@
+.page-wrapper {
+  font-family: 'Lato', sans-serif;
+}
+
+.navbar {
+  background-color: #4396CD;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  color: white;
+  margin-left: 2%;
+}
+
+.username-info {
+  align-self: center;
+  margin-right: 10px;
+}
+
+.input {
+  margin-right: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #2472A6;
+  padding: 7px;
+  color: white;
+}
+
+.username-btn {
+  border-radius: 20px;
+  background-color: #2472A6;
+  border: none;
+  color: white;
+  padding: 7px 15px 7px 15px;
+  cursor: pointer;
+}
+
+.username-btn:hover {
+  background: white;
+}
+
+.searchbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+  margin-right: 15px;
+}

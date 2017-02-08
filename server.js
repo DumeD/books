@@ -6,6 +6,7 @@ var Comments = require('./models/comments');
 var app = express();
 var router = express.Router();
 
+mongoose.connect('');
 
 var port = process.env.PORT || 8080;
 

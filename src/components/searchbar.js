@@ -10,6 +10,7 @@ class Searchbar extends Component {
   makeSearch(e) {
     e.preventDefault();
     this.props.fetchBooks(this.state.term);
+    this.setState({ term: '' });
   }
   onChange(e) {
     this.setState({ term: e.target.value });

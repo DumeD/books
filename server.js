@@ -1,12 +1,14 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+
+var Books = require('./models/books');
 var Comments = require('./models/comments');
 
 var app = express();
 var router = express.Router();
 
-mongoose.connect('');
+mongoose.connect();
 
 var port = process.env.PORT || 8080;
 
@@ -29,6 +31,7 @@ app.get('/', (req, res) => {
   res.json({ message: 'Api ready' });
 });
 
+// user's comments
 router.route('/comments').get((req, res) => {
   Comments.find((err, comment) => {
     if(err) throw err;
@@ -44,6 +47,23 @@ router.route('/comments').get((req, res) => {
     if(err) throw err;
     res.json({ message: 'Posted Successfully' });
   });
+});
+
+// comments of a book
+router.route('/books').get((req, res) => {
+  Books.find((err, commentsOnBook) => {
+    if(err) throw err;
+    res.json(commentsOnBook);
+  });
+}).post((req, res) => {
+  var commentsBook = new Books();
+  commentsBook.title = req.body.title;
+  commentsBook.comments = req.body.comments;
+
+  commentsBook.save(err => {
+    if(err) throw err;
+    res.json({ message: 'added comment to book' });
+  })
 });
 
 app.use('/api', router);
